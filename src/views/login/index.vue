@@ -71,7 +71,7 @@
 </template>
 
 <script>
-import { validUsername } from '@/utils/validate'
+
 import LangSelect from '@/components/LangSelect'
 import SocialSign from './socialsignin'
 
@@ -79,28 +79,23 @@ export default {
   name: 'Login',
   components: { LangSelect, SocialSign },
   data() {
-    const validateUsername = (rule, value, callback) => {
-      if (!validUsername(value)) {
-        callback(new Error('Please enter the correct user name'))
-      } else {
-        callback()
-      }
-    }
-    const validatePassword = (rule, value, callback) => {
+    /* const validatePassword = (rule, value, callback) => {
       if (value.length < 6) {
-        callback(new Error('The password can not be less than 6 digits'))
+        // callback(new Error('The password can not be less than 6 digits'))
+        callback(new Error('密码长度不能少于六位'))
       } else {
         callback()
       }
-    }
+    } */
     return {
       loginForm: {
         username: 'admin',
-        password: '1111111'
+        password: 'admin'
       },
       loginRules: {
-        username: [{ required: true, trigger: 'blur', validator: validateUsername }],
-        password: [{ required: true, trigger: 'blur', validator: validatePassword }]
+        username: [{ required: true, trigger: 'blur' }],
+        // password: [{ required: true, trigger: 'blur', validator: validatePassword }]
+        password: [{ required: true, trigger: 'blur' }]
       },
       passwordType: 'password',
       loading: false,
@@ -141,7 +136,7 @@ export default {
             this.loading = false
           })
         } else {
-          console.log('error submit!!')
+          alert('登录失败!!')
           return false
         }
       })
