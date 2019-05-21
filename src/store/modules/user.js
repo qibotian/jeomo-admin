@@ -56,7 +56,8 @@ const user = {
         //   reject(error)
         // })
         loginByUsername(username, userInfo.password).then(response => {
-          const data = response.data
+          var data = response.data
+          data = data.data
           commit('SET_TOKEN', data.token)
           setToken(response.data.token)
           resolve()
@@ -72,7 +73,7 @@ const user = {
         getUserInfo(state.token).then(response => {
           // 由于mockjs 不支持自定义状态码只能这样hack
           if (!response.data) {
-            reject('Verification failed, please login again.')
+            reject('登录信息验证失败, 请重新登录.')
           }
           const data = response.data
 

@@ -136,7 +136,7 @@ export default {
             this.loading = false
           })
         } else {
-          alert('登录失败!!')
+          alert('登录信息验证失败, 请重新登录.')
           return false
         }
       })
