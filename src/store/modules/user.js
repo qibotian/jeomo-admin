@@ -76,9 +76,8 @@ const user = {
             reject('登录信息验证失败, 请重新登录.')
           }
           const data = response.data
-
-          if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
-            commit('SET_ROLES', data.roles)
+          if (data.data.roles && data.data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
+            commit('SET_ROLES', data.data.roles)
           } else {
             reject('getInfo: roles must be a non-null array!')
           }
