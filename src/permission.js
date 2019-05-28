@@ -30,11 +30,10 @@ router.beforeEach((to, from, next) => {
         // 判断当前用户是否已拉取完user_info信息
         store
           .dispatch('GetUserInfo')
-          .then(res => {
+          .then(data => {
             // 拉取user_info
-            console.log(111111)
-            console.log(res.data)
-            var roles = res.data.data.roles // note: roles must be a object array! such as: [{id: '1', name: 'editor'}, {id: '2', name: 'developer'}]
+            console.log(data)
+            var roles = data.roles // note: roles must be a object array! such as: [{id: '1', name: 'editor'}, {id: '2', name: 'developer'}]
             store.dispatch('GenerateRoutes', { roles }).then(accessRoutes => {
               // 根据roles权限生成可访问的路由表
               router.addRoutes(accessRoutes) // 动态添加可访问路由表
