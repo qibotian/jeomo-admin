@@ -140,8 +140,8 @@ export default {
      */
     getList() {
       fetchList(this.listQuery).then(response => {
-        this.tableData = response.data.data.items
-        this.total = response.data.data.total
+        this.tableData = response.items
+        this.total = response.total
       })
     },
 

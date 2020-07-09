@@ -4,11 +4,10 @@ import request from '@/utils/request'
  * 分页查询
  * @param query
  */
-export function fetchList(query) {
+export function fetchList() {
   return request({
-    url: '/sys/user/list',
-    method: 'post',
-    data: query
+    url: '/sys/menu/list',
+    method: 'post'
   })
 }
 

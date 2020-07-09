@@ -180,6 +180,15 @@ export default {
     phone: '手机'
   },
   /**
+   * 菜单
+   */
+  menu: {
+    label: '文本',
+    path: '路径',
+    parentId: '父ID',
+    sort: '排序'
+  },
+  /**
    * 表单
    */
   form: {
